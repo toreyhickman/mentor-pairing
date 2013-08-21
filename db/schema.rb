@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(:version => 20130821023424) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "availabilities", :force => true do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "password_digest"
