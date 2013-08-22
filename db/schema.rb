@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20130821183657) do
   create_table "appointments", :force => true do |t|
     t.integer  "mentor_id"
     t.integer  "mentee_id"
-    t.time     "start_time"
-    t.time     "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.date     "date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20130821183657) do
   create_table "availabilities", :force => true do |t|
     t.datetime "start_time"
     t.datetime "end_time"
-    t.integer  "user_id"
+    t.integer  "mentor_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

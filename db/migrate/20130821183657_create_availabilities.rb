@@ -3,7 +3,7 @@ class CreateAvailabilities < ActiveRecord::Migration
     create_table :availabilities do |t|
       t.datetime      :start_time
       t.datetime      :end_time
-      t.references    :user
+      t.references    :mentor
 
       t.timestamps
     end
