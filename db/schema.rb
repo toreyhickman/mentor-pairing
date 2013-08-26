@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20130821183657) do
   create_table "availabilities", :force => true do |t|
     t.datetime "start_time"
     t.datetime "end_time"
+    t.date     "date"
     t.integer  "mentor_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
