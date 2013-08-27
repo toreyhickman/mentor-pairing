@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130821183657) do
+ActiveRecord::Schema.define(:version => 20130827154202) do
 
   create_table "appointments", :force => true do |t|
     t.integer  "mentor_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130821183657) do
     t.string   "type"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "twitter_handle"
   end
 
 end
