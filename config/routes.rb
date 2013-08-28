@@ -3,4 +3,6 @@ MentorPairing::Application.routes.draw do
 
   resources :availabilities
   resources :users
+
+  root :to => "availabilities#index"
 end
