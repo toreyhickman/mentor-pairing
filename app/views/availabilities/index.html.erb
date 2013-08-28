@@ -1,10 +1,8 @@
-<%= link_to "Offer to mentor someone", new_availability_path %>
-
 <h1>Available Mentoring Opporunities</h1>
 <% @availabilities.each do |a| %>
 <p>
   <%= link_to a.mentor_name, "https://twitter.com/" + a.mentor_twitter %>
   on <%= display_availability(a) %>
-</p>  
+</p>
 <% end %>
 
