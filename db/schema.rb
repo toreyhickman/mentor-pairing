@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(:version => 20130827154202) do
   create_table "availabilities", :force => true do |t|
     t.datetime "start_time"
     t.datetime "end_time"
-    t.date     "date"
     t.integer  "mentor_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -34,11 +33,11 @@ ActiveRecord::Schema.define(:version => 20130827154202) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "password_digest"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "cohort"
     t.string   "type"
+    t.string   "activation_code"
+    t.boolean  "activated"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "twitter_handle"

@@ -9,12 +9,17 @@ class Appointment < ActiveRecord::Base
   validates :mentee, :presence => true
 
   before_save :parse_availability
-
+  after_create :kill_availability
+  
   private
 
   def parse_availability
     self.start_time = availability.start_time
     self.end_time   = availability.end_time
     self.date       = availability.date
+  end
+  
+  def kill_availability
+    availability.destroy
   end
 end
