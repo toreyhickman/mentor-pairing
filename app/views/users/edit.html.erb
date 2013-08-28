@@ -1,13 +1,10 @@
-
 <%= link_to "Offer to mentor someone", new_availability_path %>
 
 <h1>Manage <%= @mentor.name %>'s availability</h1>
 
 <% @mentor.availabilities.order(:start_time).each do |a| %>
 <p>
-  On <%= a.start_time.strftime("%m/%d/%Y") %>
-  from <%= a.start_time.strftime("%I:%M%P") %>
-  to <%= a.end_time.strftime("%I:%M%P UTC") %>
+  On <%= display_availability(a) %>
   <%= link_to "Delete!", availability_path(a), :method => :delete %>
 </p>  
 <% end %>

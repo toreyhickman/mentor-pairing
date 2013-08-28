@@ -4,9 +4,7 @@
 <% @availabilities.each do |a| %>
 <p>
   <%= link_to a.mentor_name, "https://twitter.com/" + a.mentor_twitter %>
-  on <%= a.start_time.strftime("%m/%d/%Y") %>
-  from <%= a.start_time.strftime("%I:%M%P") %>
-  to <%= a.end_time.strftime("%I:%M%P UTC") %>
+  on <%= display_availability(a) %>
 </p>  
 <% end %>
 

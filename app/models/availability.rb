@@ -1,5 +1,5 @@
 class Availability < ActiveRecord::Base
-  attr_accessible :start_time, :duration
+  attr_accessible :start_time, :duration, :timezone
   attr_accessor :duration
   belongs_to :mentor
 

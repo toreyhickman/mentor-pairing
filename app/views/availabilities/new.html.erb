@@ -4,6 +4,6 @@
 <p>Email address: <%= text_field_tag :email %></p>
 <p>Date &amp; time available for mentoring: <%= datetime_select :availability, :start_time %>
 <p>Duration in minutes: <%= text_field_tag :duration %></p>
-<p>Timezone: #TODO</p>
+<p>Timezone: <%= time_zone_select(:availability, :timezone, ActiveSupport::TimeZone.us_zones, default: "Central Time (US & Canada)") %></p>
 <input type="submit" />
 <% end %>

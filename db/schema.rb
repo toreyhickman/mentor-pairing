@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130827154202) do
+ActiveRecord::Schema.define(:version => 20130828110328) do
 
   create_table "appointments", :force => true do |t|
     t.integer  "mentor_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20130827154202) do
     t.integer  "mentor_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "timezone"
   end
 
   create_table "users", :force => true do |t|
