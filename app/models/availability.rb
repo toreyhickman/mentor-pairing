@@ -17,8 +17,7 @@ class Availability < ActiveRecord::Base
   private
 
   def adjust_for_timezone
-    adjusted_time = start_time.strftime("%Y/%m/%d %I:%M%P #{timezone}")
-    self.start_time = Time.parse(adjusted_time)
+    self.start_time = ActiveSupport::TimeZone.find_tzinfo(timezone).local_to_utc(start_time)
   end
 
   def set_end_time
