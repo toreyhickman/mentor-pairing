@@ -14,14 +14,6 @@ class Availability < ActiveRecord::Base
     where("start_time > ?", Time.now)
   }
 
-  def mentor_name
-    mentor.name
-  end
-
-  def mentor_twitter
-    mentor.twitter_handle
-  end
-
   private
 
   def adjust_for_timezone

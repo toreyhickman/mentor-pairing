@@ -9,4 +9,14 @@ module ApplicationHelper
   def localtime(a, attribute)
     a[attribute].in_time_zone(a.timezone)
   end
+
+  def display_appointment(a)
+    link_to_user(a.mentor) + " is mentoring " +
+    link_to_user(a.mentee) + " on " +
+    display_availability(a)
+  end
+
+  def link_to_user(m)
+    link_to(m.name, "https://twitter.com/" + m.twitter_handle)
+  end
 end

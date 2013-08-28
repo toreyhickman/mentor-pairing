@@ -1,8 +1,15 @@
 <h1>Available Mentoring Opporunities</h1>
 <% @availabilities.each do |a| %>
 <p>
-  <%= link_to a.mentor_name, "https://twitter.com/" + a.mentor_twitter %>
+  <%= link_to_user(a.mentor) %>
   on <%= display_availability(a) %>
-</p>
+  <%= link_to "Sign up", new_appointment_request_path(:availability_id => a.id) %>
+</p>  
 <% end %>
 
+<% unless @appointments.empty? %><h1>Upcoming Mentoring Appointments</h1><% end %>
+<% @appointments.each do |a| %>
+<p>
+  <%= display_appointment(a) %>
+</p>  
+<% end %>

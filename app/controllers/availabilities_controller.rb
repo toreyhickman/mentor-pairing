@@ -5,9 +5,9 @@ class AvailabilitiesController < ApplicationController
   end
 
   def create
-    mentor = Mentor.find_by_email(params[:email])
+    mentor = User.find_by_email(params[:email])
     unless mentor
-      mentor = Mentor.create!(mentor_params).send_activation
+      mentor = User.create!(mentor_params).send_activation
       flash[:notice] = "Please go check your email, ok?"
     end
     mentor.availabilities.create!(params[:availability])
@@ -16,6 +16,7 @@ class AvailabilitiesController < ApplicationController
 
   def index
     @availabilities = Availability.visible.order(:start_time)
+    @appointments = Appointment.visible.order(:start_time)
   end
 
   def destroy

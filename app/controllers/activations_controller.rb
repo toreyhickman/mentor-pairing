@@ -1,6 +1,6 @@
 class ActivationsController < ApplicationController
   def mentor
-    mentor = Mentor.find_by_activation_code(params[:code])
+    mentor = User.find_by_activation_code(params[:code])
     if mentor
       unless mentor.activated?
         mentor.update_attribute(:activated, true)

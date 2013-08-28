@@ -11,6 +11,10 @@ class Appointment < ActiveRecord::Base
   before_save :parse_availability
   after_create :kill_availability
   
+  scope :visible, Proc.new {
+    where("start_time > ?", Time.now)
+  }
+
   private
 
   def parse_availability
