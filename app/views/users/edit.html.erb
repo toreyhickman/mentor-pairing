@@ -2,7 +2,7 @@
 
 <h1>Manage <%= @mentor.name %>'s availability</h1>
 
-<% @mentor.availabilities.order(:start_time).each do |a| %>
+<% @availabilities.each do |a| %>
 <p>
   On <%= display_availability(a) %>
   <%= link_to "Delete!", availability_path(a), :method => :delete %>
