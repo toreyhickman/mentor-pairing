@@ -1,10 +1,13 @@
 class AppointmentsController < ApplicationController
-  def new
-    @availability = Availability.find_by_id(params[:availability_id])
-    return redirect_to availabilities_path unless @availability.present?
-  end
-
   def create
-    raise params.inspect
+    mentee = User.find(params[:mentee_id])
+    mentor = User.find_by_activation_code(params[:code])
+    availability = mentor.availabilities.find(params[:availability_id])
+
+    Appointment.create!(:mentee => mentee, :mentor => mentor, :availability => availability)
+
+    flash[:notice] = "An appointment has been created for you and #{mentee.name}. Enjoy!"
+
+    redirect_to edit_user_path(mentor.activation_code)
   end
 end

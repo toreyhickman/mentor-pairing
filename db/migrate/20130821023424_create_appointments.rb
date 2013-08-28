@@ -5,7 +5,8 @@ class CreateAppointments < ActiveRecord::Migration
       t.references  :mentee
       t.datetime    :start_time
       t.datetime    :end_time
-      t.date        :date
+      t.string      :timezone
+      t.string      :location
 
       t.timestamps
     end

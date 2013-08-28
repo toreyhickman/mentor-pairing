@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(:version => 20130828115517) do
     t.integer  "mentee_id"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.date     "date"
+    t.string   "timezone"
+    t.string   "location"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -37,7 +38,6 @@ ActiveRecord::Schema.define(:version => 20130828115517) do
     t.string   "email"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "type"
     t.string   "activation_code"
     t.boolean  "activated"
     t.datetime "created_at",      :null => false

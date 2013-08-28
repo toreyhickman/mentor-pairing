@@ -1,10 +1,21 @@
-<%= link_to "Offer to mentor someone", new_availability_path %>
-
-<h1>Manage <%= @mentor.name %>'s availability</h1>
-
+<% unless @availabilities.empty? %><h1>My upcoming availability</h1><% end %>
 <% @availabilities.each do |a| %>
 <p>
   On <%= display_availability(a) %>
   <%= link_to "Delete!", availability_path(a), :method => :delete %>
+</p>  
+<% end %>
+
+<% unless @menteeing_appointments.empty? %><h1>My upcoming appointments with mentors</h1><% end %>
+<% @menteeing_appointments.each do |a| %>
+<p>
+  <%= display_appointment(a) %>
+</p>  
+<% end %>
+
+<% unless @mentoring_appointments.empty? %><h1>My upcoming appointments with mentees</h1><% end %>
+<% @mentoring_appointments.each do |a| %>
+<p>
+  <%= display_appointment(a) %>
 </p>  
 <% end %>
