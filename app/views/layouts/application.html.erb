@@ -7,6 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <ul>
+    <li style="display: inline;"><%= link_to "Availabilities", availabilities_path %></li>
+    <li style="display: inline;"><%= link_to "Create New Availability", new_availability_path %></li>
+  </ul>
+</header>
 <p style="color:green"><%= flash[:notice] %></p>
 
 <%= yield %>
