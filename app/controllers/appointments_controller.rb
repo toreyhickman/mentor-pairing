@@ -4,7 +4,8 @@ class AppointmentsController < ApplicationController
     mentor = User.find_by_activation_code(params[:code])
     availability = mentor.availabilities.find(params[:availability_id])
 
-    Appointment.create!(:mentee => mentee, :mentor => mentor, :availability => availability)
+    appointment = Appointment.create!(:mentee => mentee, :mentor => mentor, :availability => availability)
+    mentee.send_appointment_confirmation(appointment)
 
     flash[:notice] = "An appointment has been created for you and #{mentee.name}. Enjoy!"
 

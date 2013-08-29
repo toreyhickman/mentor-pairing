@@ -19,4 +19,13 @@ class UserMailer < ActionMailer::Base
 
     mail(:to => @mentor.email, :subject => "#{@mentee.name} has requested to learn with you")
   end
+
+  def appointment_confirmation(appointment)
+    @appointment = appointment
+    @mentor = appointment.mentor
+    @mentee = appointment.mentee
+
+    mail(:to => @mentee.email, :subject => "#{@mentor.name} has agreed to learn with you!")
+  end
+
 end
