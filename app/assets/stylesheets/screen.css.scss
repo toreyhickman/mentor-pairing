@@ -1,0 +1,83 @@
+/* $TITLE **********************************************************************
+
+	Style rules for Pairing Is Caring
+	Jump to individual sections by searching for "$SECTION TITLE"
+
+*******************************************************************************/
+
+/* $CONTENTS *******************************************************************
+
+	* Imports
+	* Mixins
+	* Fonts
+	* Variables
+	* Grid
+	* Breakpoints
+	* Base
+	* Layout
+	* Modules
+	* Media Queries
+
+*******************************************************************************/
+
+
+
+/* $IMPORTS *******************************************************************/
+
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/layout";
+@import "compass/typography/";
+@import "compass/utilities/general/clearfix";
+@import "susy";
+
+/* $MIXINS ********************************************************************/
+
+/* $FONTS *********************************************************************/
+
+@include font-face("entypo", font-files("entypo.woff", "entypo.ttf", "entypo.svg"), "entypo.eot");
+@include font-face("entypo-social", font-files("entypo-social.ttf", "entypo-social.woff", "entypo-social.svg"), "entypo-social.eot");
+// Varela Round via Google Fonts
+
+/* $VARIABLES *****************************************************************/
+
+$base: #e54739;
+$primary: #ffffff;
+
+/* $GRID **********************************************************************/
+
+$total-columns  : 8;
+$column-width   : 4em;
+$gutter-width   : 1em;
+$grid-padding   : $gutter-width;
+
+/* $BREAKPOINTS ***************************************************************/
+
+/* $BASE **********************************************************************/
+
+body {
+	background-color: $base;
+	font-family: "Varela Round", sans-serif;
+}
+
+header, section, footer {
+	@include container;
+	text-align: center;
+}
+
+header {
+	background-image: url("heart.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	min-height: 200px;
+	margin-top: 3em;
+}
+
+// TYPOGRAPHY
+
+h1 {
+	color: $primary;
+	font-size: 4em;
+	text-transform: uppercase;
+	padding-top: 1.25em;
+}
