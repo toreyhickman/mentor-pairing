@@ -1,21 +1,27 @@
-<% unless @availabilities.empty? %><h1>My upcoming availability</h1><% end %>
+<% unless @availabilities.empty? %><h2>My upcoming availability</h2><% end %>
 <% @availabilities.each do |a| %>
-<p>
-  On <%= display_availability(a) %>
-  <%= link_to "Delete!", availability_path(a), :method => :delete %>
-</p>  
+<div class="panel">
+	<p>
+	  On <%= display_availability(a) %>
+	  <%= link_to "Delete!", availability_path(a), :method => :delete %>
+	</p>
+</div>
 <% end %>
 
-<% unless @menteeing_appointments.empty? %><h1>My upcoming appointments with mentors</h1><% end %>
+<% unless @menteeing_appointments.empty? %><h2>My upcoming appointments with mentors</h2><% end %>
 <% @menteeing_appointments.each do |a| %>
-<p>
-  <%= display_appointment(a) %>
-</p>  
+<div class="panel">
+	<p>
+	  <%= display_appointment(a) %>
+	</p>  
+</div>
 <% end %>
 
-<% unless @mentoring_appointments.empty? %><h1>My upcoming appointments with mentees</h1><% end %>
+<% unless @mentoring_appointments.empty? %><h2>My upcoming appointments with mentees</h2><% end %>
 <% @mentoring_appointments.each do |a| %>
-<p>
-  <%= display_appointment(a) %>
-</p>  
+<div class="panel">
+	<p>
+	  <%= display_appointment(a) %>
+	</p>
+</div>
 <% end %>

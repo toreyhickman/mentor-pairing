@@ -12,26 +12,26 @@
 	* Fonts
 	* Variables
 	* Grid
-	* Breakpoints
 	* Base
 	* Layout
-	* Modules
-	* Media Queries
+	* Typography
+	* Anchors
+	* Form Elements
 
 *******************************************************************************/
-
-
 
 /* $IMPORTS *******************************************************************/
 
 @import "compass/reset";
 @import "compass/css3";
 @import "compass/layout";
-@import "compass/typography/";
+@import "compass/typography";
 @import "compass/utilities/general/clearfix";
 @import "susy";
 
 /* $MIXINS ********************************************************************/
+
+@include sticky-footer(25px, ".page", ".page-footer", "footer");
 
 /* $FONTS *********************************************************************/
 
@@ -41,23 +41,32 @@
 
 /* $VARIABLES *****************************************************************/
 
-$base: #e54739;
-$primary: #ffffff;
+$base: 						#e54739;
+$base-shadow:			#9c2217;
+$primary: 				#ffffff;
+$foreground: 			#333333;
+$contrast:				#e9f193;
+$border:					#de3121;
+$accent-light:		#02a9b9;
+$accent-dark:			#007784;
+$accent-darkest:	#00454c;
+$text-shadow:			#555555;
+$input-base:			#efefef;
 
 /* $GRID **********************************************************************/
 
-$total-columns  : 8;
-$column-width   : 4em;
-$gutter-width   : 1em;
-$grid-padding   : $gutter-width;
-
-/* $BREAKPOINTS ***************************************************************/
+$total-columns:	8;
+$column-width:	4em;
+$gutter-width:	1em;
+$grid-padding:	$gutter-width;
 
 /* $BASE **********************************************************************/
 
 body {
 	background-color: $base;
+	color: $foreground;
 	font-family: "Varela Round", sans-serif;
+	line-height: 140%;
 }
 
 header, section, footer {
@@ -65,19 +74,132 @@ header, section, footer {
 	text-align: center;
 }
 
+/* $LAYOUT ********************************************************************/
+
 header {
 	background-image: url("heart.png");
 	background-repeat: no-repeat;
 	background-position: center;
-	min-height: 200px;
-	margin-top: 3em;
+	min-height: 270px;
+	margin-top: 6em;
 }
 
-// TYPOGRAPHY
+nav {
+	margin-top: 7em;
+}
+
+footer {
+	border-top: 2px solid $border;
+	padding-bottom: 3em;
+}
+
+.panel {
+	@include border-radius(5px);
+	@include box-shadow(3px 3px 1px $base-shadow);
+	background-color: $primary;
+	padding: 2em;
+	text-align: left;
+}
+
+.alert {
+	@include container;
+	color: #fff;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+/* $TYPOGRAPHY ****************************************************************/
 
 h1 {
-	color: $primary;
+	@include text-shadow(3px 3px 1px $base-shadow);
+	color: #fff;
 	font-size: 4em;
 	text-transform: uppercase;
-	padding-top: 1.25em;
+	span {
+		font-size: 60%;
+		vertical-align: middle;
+	}
+}
+
+h2 {
+	@include text-shadow(1px 1px 1px $base-shadow);
+	border-bottom: 2px solid $border;
+	border-top: 2px solid $border;
+	color: $contrast;
+	font-size: 2em;
+	margin-bottom: 1em;
+	padding: 0.5em 0;
+}
+
+p {
+	margin: 2em 0;
+}
+
+/* $ANCHORS *******************************************************************/
+
+a {
+	border-bottom: 1px dashed $accent-light;
+	color: $accent-dark;
+	text-decoration: none;
+	&:hover {
+		border-bottom: 1px solid $accent-light;
+		color: $foreground;
+	}
+}
+
+a.link {
+	@include border-radius(5px);
+	@include box-shadow(3px 3px 1px $accent-dark);
+	@include text-shadow(1px 1px 1px $text-shadow);
+	background-color: $accent-light;
+	border-bottom: none;
+	color: #fff;
+	font-size: 1.2em;
+	margin: 0 2em;
+	padding: 1em;
+	text-transform: uppercase;
+	&:hover {
+		@include box-shadow(3px 3px 1px $accent-darkest);
+		@include text-shadow(1px 1px 1px #000000);
+		@include transition-property(all);
+		@include transition-duration(0.6s);
+		background-color: $accent-dark;
+	}
+}
+
+/* $FORM ELEMENTS ************************************************************/
+
+input {
+	@include border-radius(5px);
+	background-color: $input-base;
+	border: 1px solid #ccc;
+	font-size: 1em;
+	padding: 0.5em;
+	&[type=submit]{
+		@include box-shadow(3px 3px 1px $accent-dark);
+		@include text-shadow(1px 1px 1px $text-shadow);
+		background-color: $accent-light;
+		border: none;
+		color: #fff;
+		padding: 0.5em 1em;
+		text-align: right;
+	}
+}
+
+select {
+	font-size: 1em;
+}
+
+label {
+	display: inline-block;
+	font-size: 0.8em;
+	line-height: 140%;
+	text-transform: uppercase;
+	width: 180px;
+}
+
+.field {
+	border-top: 1px dashed #ccc;
+	padding-top: 1em;
+	margin-bottom: 2em;
 }

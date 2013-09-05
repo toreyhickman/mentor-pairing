@@ -1,10 +1,12 @@
-<%= form_tag availabilities_path do %>
-<p>Name: <%= text_field_tag :first_name %><%= text_field_tag :last_name %></p>
-<p>Twitter handle: <%= text_field_tag :twitter_handle %></p>
-<p>Email address: <%= text_field_tag :email %></p>
-<p>Date &amp; time available for mentoring: <%= datetime_select :availability, :start_time %>
-<p>Duration in minutes: <%= text_field :availability, :duration %></p>
-<p>Timezone: <%= time_zone_select(:availability, :timezone, ActiveSupport::TimeZone.us_zones, default: "Central Time (US & Canada)") %></p>
-<p>Location: <%= text_field :availability, :location %></p>
-<input type="submit" />
-<% end %>
+<div class="panel">
+	<%= form_tag availabilities_path do %>
+	<div class="field"><label>Name</label><%= text_field_tag :first_name %><%= text_field_tag :last_name %></div>
+	<div class="field"><label>Twitter handle</label><%= text_field_tag :twitter_handle %></div>
+	<div class="field"><label>Email address</label><%= text_field_tag :email %></div>
+	<div class="field"><label>Date &amp; time available for mentoring</label><%= datetime_select :availability, :start_time %></div>
+	<div class="field"><label>Duration in minutes</label><%= text_field :availability, :duration %></div>
+	<div class="field"><label>Timezone</label><%= time_zone_select(:availability, :timezone, ActiveSupport::TimeZone.us_zones, default: "Central Time (US & Canada)") %></div>
+	<div class="field"><label>Location</label><%= text_field :availability, :location %></div>
+	<input type="submit" />
+	<% end %>
+</div>

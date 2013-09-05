@@ -11,11 +11,11 @@
 	* Fonts
 	* Variables
 	* Grid
-	* Breakpoints
 	* Base
 	* Layout
-	* Modules
-	* Media Queries
+	* Typography
+	* Anchors
+	* Form Elements
 
 *******************************************************************************/
 /* $IMPORTS *******************************************************************/
@@ -85,6 +85,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* $MIXINS ********************************************************************/
+/* line 10, ../../../../.rbenv/versions/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 12, ../../../../.rbenv/versions/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+.page {
+  clear: both;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin-bottom: -25px;
+}
+/* line 18, ../../../../.rbenv/versions/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+.page .page-footer {
+  height: 25px;
+}
+
+/* line 20, ../../../../.rbenv/versions/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+footer {
+  clear: both;
+  position: relative;
+  height: 25px;
+}
+
 /* $FONTS *********************************************************************/
 @font-face {
   font-family: "entypo";
@@ -100,20 +125,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /* $VARIABLES *****************************************************************/
 /* $GRID **********************************************************************/
-/* $BREAKPOINTS ***************************************************************/
 /* $BASE **********************************************************************/
-/* line 58, ../../app/assets/stylesheets/screen.css.scss */
+/* line 65, ../../app/assets/stylesheets/screen.css.scss */
 body {
   background-color: #e54739;
+  color: #333333;
   font-family: "Varela Round", sans-serif;
+  line-height: 140%;
 }
 
-/* line 63, ../../app/assets/stylesheets/screen.css.scss */
+/* line 72, ../../app/assets/stylesheets/screen.css.scss */
 header, section, footer {
   *zoom: 1;
-  margin: auto;
-  width: 61em;
-  max-width: 100%;
+  max-width: 39em;
+  _width: 39em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }
 /* line 38, ../../../../.rbenv/versions/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
@@ -123,19 +152,184 @@ header:after, section:after, footer:after {
   clear: both;
 }
 
-/* line 68, ../../app/assets/stylesheets/screen.css.scss */
+/* $LAYOUT ********************************************************************/
+/* line 79, ../../app/assets/stylesheets/screen.css.scss */
 header {
   background-image: url("heart.png");
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 200px;
-  margin-top: 3em;
+  min-height: 270px;
+  margin-top: 6em;
 }
 
-/* line 78, ../../app/assets/stylesheets/screen.css.scss */
+/* line 87, ../../app/assets/stylesheets/screen.css.scss */
+nav {
+  margin-top: 7em;
+}
+
+/* line 91, ../../app/assets/stylesheets/screen.css.scss */
+footer {
+  border-top: 2px solid #de3121;
+  padding-bottom: 3em;
+}
+
+/* line 96, ../../app/assets/stylesheets/screen.css.scss */
+.panel {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 1px #9c2217;
+  -moz-box-shadow: 3px 3px 1px #9c2217;
+  box-shadow: 3px 3px 1px #9c2217;
+  background-color: white;
+  padding: 2em;
+  text-align: left;
+}
+
+/* line 104, ../../app/assets/stylesheets/screen.css.scss */
+.alert {
+  *zoom: 1;
+  max-width: 39em;
+  _width: 39em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+/* line 38, ../../../../.rbenv/versions/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.alert:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* $TYPOGRAPHY ****************************************************************/
+/* line 113, ../../app/assets/stylesheets/screen.css.scss */
 h1 {
-  color: white;
+  text-shadow: 3px 3px 1px #9c2217;
+  color: #fff;
   font-size: 4em;
   text-transform: uppercase;
-  padding-top: 1.25em;
+}
+/* line 118, ../../app/assets/stylesheets/screen.css.scss */
+h1 span {
+  font-size: 60%;
+  vertical-align: middle;
+}
+
+/* line 124, ../../app/assets/stylesheets/screen.css.scss */
+h2 {
+  text-shadow: 1px 1px 1px #9c2217;
+  border-bottom: 2px solid #de3121;
+  border-top: 2px solid #de3121;
+  color: #e9f193;
+  font-size: 2em;
+  margin-bottom: 1em;
+  padding: 0.5em 0;
+}
+
+/* line 134, ../../app/assets/stylesheets/screen.css.scss */
+p {
+  margin: 2em 0;
+}
+
+/* $ANCHORS *******************************************************************/
+/* line 140, ../../app/assets/stylesheets/screen.css.scss */
+a {
+  border-bottom: 1px dashed #02a9b9;
+  color: #007784;
+  text-decoration: none;
+}
+/* line 144, ../../app/assets/stylesheets/screen.css.scss */
+a:hover {
+  border-bottom: 1px solid #02a9b9;
+  color: #333333;
+}
+
+/* line 150, ../../app/assets/stylesheets/screen.css.scss */
+a.link {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 3px 1px #007784;
+  -moz-box-shadow: 3px 3px 1px #007784;
+  box-shadow: 3px 3px 1px #007784;
+  text-shadow: 1px 1px 1px #555555;
+  background-color: #02a9b9;
+  border-bottom: none;
+  color: #fff;
+  font-size: 1.2em;
+  margin: 0 2em;
+  padding: 1em;
+  text-transform: uppercase;
+}
+/* line 161, ../../app/assets/stylesheets/screen.css.scss */
+a.link:hover {
+  -webkit-box-shadow: 3px 3px 1px #00454c;
+  -moz-box-shadow: 3px 3px 1px #00454c;
+  box-shadow: 3px 3px 1px #00454c;
+  text-shadow: 1px 1px 1px black;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.6s;
+  -moz-transition-duration: 0.6s;
+  -o-transition-duration: 0.6s;
+  transition-duration: 0.6s;
+  background-color: #007784;
+}
+
+/* $FORM ELEMENTS ************************************************************/
+/* line 172, ../../app/assets/stylesheets/screen.css.scss */
+input {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #efefef;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  padding: 0.5em;
+}
+/* line 178, ../../app/assets/stylesheets/screen.css.scss */
+input[type=submit] {
+  -webkit-box-shadow: 3px 3px 1px #007784;
+  -moz-box-shadow: 3px 3px 1px #007784;
+  box-shadow: 3px 3px 1px #007784;
+  text-shadow: 1px 1px 1px #555555;
+  background-color: #02a9b9;
+  border: none;
+  color: #fff;
+  padding: 0.5em 1em;
+  text-align: right;
+}
+
+/* line 189, ../../app/assets/stylesheets/screen.css.scss */
+select {
+  font-size: 1em;
+}
+
+/* line 193, ../../app/assets/stylesheets/screen.css.scss */
+label {
+  display: inline-block;
+  font-size: 0.8em;
+  line-height: 140%;
+  text-transform: uppercase;
+  width: 180px;
+}
+
+/* line 201, ../../app/assets/stylesheets/screen.css.scss */
+.field {
+  border-top: 1px dashed #ccc;
+  padding-top: 1em;
+  margin-bottom: 2em;
 }

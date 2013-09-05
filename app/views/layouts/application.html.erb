@@ -10,16 +10,22 @@
 <body>
 	<header>
 		<h1>Pairing <span>Is</span> Caring</h1>
-	  <ul>
-	    <li style="display: inline;"><%= link_to "Availabilities", availabilities_path %></li>
-	    <li style="display: inline;"><%= link_to "Offer to mentor someone", new_availability_path %></li>
-	  </ul>
+	  <nav>
+	    <%= link_to "Find a mentor", availabilities_path, :class => "link" %>
+	    <%= link_to "Offer to mentor", new_availability_path, :class => "link" %>
+	  </nav>
 	</header>
-	<p style="color:green"><%= flash[:notice] %></p>
 
-	<section>
+	<p class="alert"><%= flash[:notice] %></p>
+
+	<section class="page">
 		<%= yield %>
+		<div class="page-footer"></div>
 	</section>
+
+	<footer>
+		<p>Made by Erik and Dave.</p>
+	</footer>
 
 </body>
 </html>
