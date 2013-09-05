@@ -10,7 +10,7 @@ class Appointment < ActiveRecord::Base
 
   before_create :parse_availability
   after_create :kill_availability
-  
+
   scope :visible, Proc.new {
     where("start_time > ?", Time.now)
   }
@@ -23,7 +23,7 @@ class Appointment < ActiveRecord::Base
     self.timezone   = availability.timezone
     self.location   = availability.location
   end
-  
+
   def kill_availability
     availability.destroy
   end

@@ -5,9 +5,8 @@ describe Availability do
 
   describe "when first created" do
     before(:each) do
-      @start_time = Time.new(2013, 1, 1)
-      @date = Date.today
-      @availability = Availability.create(:start_time => @start_time, :date => @date)
+      @start_time = DateTime.new(2013, 1, 1)
+      @availability = Availability.create(:start_time => @start_time)
     end
 
     it "should have a start_time" do
@@ -15,7 +14,7 @@ describe Availability do
     end
 
     it "should have an end_time" do
-      expect(@availability.end_time).to eq(@start_time + 1800)
+      expect(@availability.end_time).to eq(@availability.start_time + 1800)
     end
 
     context "length" do
