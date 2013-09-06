@@ -1,12 +1,13 @@
 <h2>Available Mentoring Opportunities</h2>
 <% if @availabilities.empty? %>
   <div class="panel">
-	  <p>There isn't currently any upcoming mentoring availibility. <%= link_to "Offer to mentor someone!", new_availability_path %></p>
+	  <p><span aria-hidden="true" class="icon" data-icon="&hearts;"></span> There isn't currently any upcoming mentoring availibility. <%= link_to "Offer to mentor someone!", new_availability_path %></p>
 	</div>
 <% end %>
 <% @availabilities.each do |a| %>
 <div class="panel">
 	<p>
+		<span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
 	  <%= link_to_user(a.mentor) %>
 	  on <%= display_availability(a) %>
 	  <%= link_to "Sign up", new_appointment_request_path(:availability_id => a.id) %>
@@ -14,10 +15,11 @@
 </div>
 <% end %>
 
-<% unless @appointments.empty? %><h1>Upcoming Mentoring Appointments</h1><% end %>
+<% unless @appointments.empty? %><h2>Upcoming Mentoring Appointments</h2><% end %>
 <% @appointments.each do |a| %>
 <div class="panel">
 	<p>
+		<span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
 	  <%= display_appointment(a) %>
 	</p>
 </div>

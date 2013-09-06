@@ -97,8 +97,12 @@ footer {
 	@include border-radius(5px);
 	@include box-shadow(3px 3px 1px $base-shadow);
 	background-color: $primary;
-	padding: 2em;
+	padding: 1em 2em;
 	text-align: left;
+	margin-bottom: 1em;
+	& a {
+		font-weight: bold;
+	}
 }
 
 .alert {
@@ -138,8 +142,10 @@ p {
 /* $ANCHORS *******************************************************************/
 
 a {
+	background-color: #e9f193;
 	border-bottom: 1px dashed $accent-light;
 	color: $accent-dark;
+	font-weight: bold;
 	text-decoration: none;
 	&:hover {
 		border-bottom: 1px solid $accent-light;
@@ -203,3 +209,16 @@ label {
 	padding-top: 1em;
 	margin-bottom: 2em;
 }
+
+/* $ICONS ********************************************************************/
+
+.icon {
+	font-weight: normal;
+  &:before {
+  	content: attr(data-icon);
+    font-family: "entypo";
+    font-size: 3em;
+    speak: none;
+    vertical-align: middle;
+  }
+ }
