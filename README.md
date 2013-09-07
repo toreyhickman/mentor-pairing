@@ -1,6 +1,6 @@
-###Mentor Pairing Awesomeness
+### Pairing is Caring
 
-An app allow the organic transfer of knowledge… (or something equally catchy)
+This application facilitates the coordination of mentoring appointments. Anyone who is willing to mentor can expose their availability. Anyone who wants some mentoring can request to create an appointment with an available mentor. We encourage people to use the time to pair program together.
 
 #### UI Development
 
