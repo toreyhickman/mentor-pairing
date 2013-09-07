@@ -6,7 +6,8 @@ before_script:
 rvm:
   - 1.9.3
   - 2.0.0
-
 notifications:
-  email:
-    - 'development@devbootcamp.com'
+  email: false
+  campfire:
+    rooms:
+      secure: AiQSo4xSHIkOTsVE/dCjnHUBjDDnx/K+t2s1ztqOuOMha379USO4/D6ZNkN2JwkZSi1fWm9bW9SqXCPIrk9PIBXMtVmiNrQYb0YPhV9l91QnFPqohnwDSknk9egGAWrGv1k3WrRZU1OhXWFALSJyZXdYpkBYR0Fm5uJykLW/7kE=
