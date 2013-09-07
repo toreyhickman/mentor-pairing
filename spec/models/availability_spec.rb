@@ -6,7 +6,7 @@ describe Availability do
   describe "when first created" do
     before(:each) do
       @start_time = DateTime.new(2013, 1, 1)
-      @availability = Availability.create(:start_time => @start_time)
+      @availability = FactoryGirl.create(:availability, start_time: @start_time)
     end
 
     it "should have a start_time" do

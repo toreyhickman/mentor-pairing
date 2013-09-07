@@ -9,7 +9,8 @@ describe Appointment do
       @mentor = FactoryGirl.create(:mentor)
       @mentee = FactoryGirl.create(:mentee)
       @start_time = DateTime.new(2013, 1, 1)
-      @availability = @mentor.availabilities.create(:start_time => @start_time)
+      availability_attributes = FactoryGirl.attributes_for(:availability, start_time: @start_time)
+      @availability = @mentor.availabilities.create(availability_attributes)
       @appointment = Appointment.create(:mentor => @mentor, :mentee => @mentee, :availability => @availability)
     end
 
