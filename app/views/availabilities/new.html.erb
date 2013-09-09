@@ -1,7 +1,7 @@
 <div class="panel">
 	<%= form_tag availabilities_path do %>
 	<div class="field"><label>Name</label><%= text_field_tag :first_name %><%= text_field_tag :last_name %></div>
-	<div class="field"><label>Twitter handle</label><%= text_field_tag :twitter_handle %></div>
+	<div class="field"><label>Twitter handle<span class="addon">@</span></label><%= text_field_tag :twitter_handle %></div>
 	<div class="field"><label>Email address</label><%= text_field_tag :email %></div>
 	<div class="field"><label>Date &amp; time available for mentoring</label><%= datetime_select :availability, :start_time %></div>
 	<div class="field"><label>Duration in minutes</label><%= text_field :availability, :duration %></div>
