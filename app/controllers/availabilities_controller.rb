@@ -13,7 +13,7 @@ class AvailabilitiesController < ApplicationController
   def index
     @availabilities = Availability.visible.order(:start_time)
     @appointments = Appointment.visible.order(:start_time)
-    @featured = Appointment.limit(25).map(&:mentor).uniq.sort_by(&:name)
+    @featured = User.featured_mentors
   end
 
   def destroy

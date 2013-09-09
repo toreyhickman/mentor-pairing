@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
 
   before_create :create_activation_code
 
+  def self.featured_mentors
+    Appointment.limit(25).map(&:mentor).uniq.sort_by(&:name)
+  end
+
   def name
     [first_name, last_name].compact.join(" ")
   end
