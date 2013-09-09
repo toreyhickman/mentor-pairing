@@ -24,3 +24,13 @@
 	</p>
 </div>
 <% end %>
+
+<h2>Featured Mentors</h2>
+<% @featured.each do |user| %>
+<div class="panel">
+	<p>
+		<span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
+		<%= link_to_user user %>
+	</p>
+</div>
+<% end %>
