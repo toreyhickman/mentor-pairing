@@ -10,7 +10,7 @@ feature "Mentor creates availability" do
       fill_in :last_name, with: mentor.last_name
       fill_in :email, with: mentor.email
       fill_in :twitter_handle, with: mentor.twitter_handle
-      fill_in :duration, with: 60
+      fill_in :availability_duration, with: 60
 
 
       mentoring_time = 1.week.from_now
