@@ -8,4 +8,6 @@ if $LOAD_PATH.any? { |p| p.include? "rspec" }
     desc "Run all specs"
     task :all => [:spec, :features]
   end
+  task :default => ["spec:all"]
 end
+
