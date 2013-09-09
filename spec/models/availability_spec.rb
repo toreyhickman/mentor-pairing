@@ -13,7 +13,7 @@ describe Availability do
       expect(@availability.start_time).to eq(@start_time)
     end
 
-    it "should have an end_time" do
+    it "should have an end_time which is the duration times 60" do
       expect(@availability.end_time).to eq(@availability.start_time + 1800)
     end
 
@@ -22,7 +22,5 @@ describe Availability do
         expect(@availability.end_time - @availability.start_time).to eq(1800)
       end
     end
-
   end
-
 end

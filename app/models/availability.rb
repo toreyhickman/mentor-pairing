@@ -1,5 +1,7 @@
 class Availability < ActiveRecord::Base
   attr_accessible :start_time, :duration, :timezone, :location
+  attr_accessor :duration
+
   belongs_to :mentor, :class_name => "User"
 
   validates :start_time, :presence => true
@@ -12,11 +14,6 @@ class Availability < ActiveRecord::Base
     where("users.activated" => true).
     where("start_time > ?", Time.now)
   }
-
-
-  def duration
-    30
-  end
 
   private
 
