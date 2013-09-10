@@ -1,12 +1,16 @@
 <div class="panel">
-	<%= form_tag availabilities_path do %>
-	<div class="field"><label>Name</label><%= text_field_tag :first_name %><%= text_field_tag :last_name %></div>
-	<div class="field"><label>Twitter handle<span class="addon">@</span></label><%= text_field_tag :twitter_handle %></div>
-	<div class="field"><label>Email address</label><%= text_field_tag :email %></div>
-	<div class="field"><label>Date &amp; time available for mentoring</label><%= datetime_select :availability, :start_time %></div>
-	<div class="field"><label>Duration in minutes</label><%= text_field :availability, :duration %></div>
-	<div class="field"><label>Timezone</label><%= time_zone_select(:availability, :timezone, ActiveSupport::TimeZone.us_zones, default: "Central Time (US & Canada)") %></div>
-	<div class="field"><label>Location</label><%= text_field :availability, :location %></div>
-	<input id="submit_availability" type="submit" />
-	<% end %>
+  <%= form_tag availabilities_path do %>
+    <div class="field"><label>Name</label><%= text_field_tag :first_name %><%= text_field_tag :last_name %></div>
+    <div class="field"><label>Twitter handle<span class="addon">@</span></label><%= text_field_tag :twitter_handle %></div>
+    <div class="field"><label>Email address</label><%= text_field_tag :email %></div>
+    <div class="field">
+      <label>Date &amp; time available for mentoring</label>
+      <%= text_field_tag 'availability[start_time_1s]', Date.current, :name => 'availability[start_time(1s)]' %>
+      <%= time_select :availability, :start_time, :ignore_date => true %>
+    </div>
+    <div class="field"><label>Duration in minutes</label><%= text_field :availability, :duration %></div>
+    <div class="field"><label>Timezone</label><%= time_zone_select(:availability, :timezone, ActiveSupport::TimeZone.us_zones, default: "Central Time (US & Canada)") %></div>
+    <div class="field"><label>Location</label><%= text_field :availability, :location %></div>
+    <input id="submit_availability" type="submit" />
+  <% end %>
 </div>

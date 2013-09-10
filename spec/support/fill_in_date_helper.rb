@@ -1,9 +1,7 @@
 module SelectDateTimeHelper
   def select_datetime(datetime, field)
+    fill_in :availability_start_time_1s, with: datetime.strftime("%Y-%m-%d")
     {
-      "1i" => -> (dt) { dt.year           },
-      "2i" => -> (dt) { dt.strftime("%B") },
-      "3i" => -> (dt) { dt.day            },
       "4i" => -> (dt) { dt.strftime("%H") },
       "5i" => -> (dt) { dt.strftime("%M") }
     }.each do |sub_field, translation|
