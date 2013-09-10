@@ -6,7 +6,7 @@ class AvailabilitiesController < ApplicationController
 
   def create
     mentor = find_or_activate_by_email
-    mentor.availabilities.create!(params[:availability])
+    mentor.availabilities.create!(format_start_time(params[:availability]))
     redirect_to availabilities_path
   end
 
@@ -19,5 +19,17 @@ class AvailabilitiesController < ApplicationController
   def destroy
     Availability.destroy(params[:id])
     redirect_to :back
+  end
+
+  private
+
+  def format_start_time(time_params)
+    return time_params unless time_params['start_time(1s)']
+    new_time_params = time_params.clone
+    year, month, day = new_time_params.delete('start_time(1s)').split('-')
+    new_time_params['start_time(1i)'] = year
+    new_time_params['start_time(2i)'] = month
+    new_time_params['start_time(3i)'] = day
+    new_time_params
   end
 end
