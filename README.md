@@ -8,8 +8,7 @@ This application facilitates the coordination of mentoring appointments. Anyone 
 git clone git@github.com:Devbootcamp/mentor-pairing.git
 cd mentor-pairing
 bundle install
-rake db:create:all db:migrate db:test:prepare
-rspec
+rake db:create:all db:migrate db:test:prepare spec:all
 ```
 
 #### UI Development
