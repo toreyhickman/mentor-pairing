@@ -6,26 +6,22 @@ describe Appointment do
 
   describe "when first created" do
     before(:each) do
-      @mentor = Mentor.create
-      @mentee = Mentee.create
-      @start_time = Time.new(2013, 1, 1)
-      @availability = @mentor.availabilities.create(:start_time => @start_time, :date => Date.today)
+      @mentor = FactoryGirl.create(:mentor)
+      @mentee = FactoryGirl.create(:mentee)
+      @start_time = DateTime.new(2013, 1, 1)
+      availability_attributes = FactoryGirl.attributes_for(:availability, start_time: @start_time)
+      @availability = @mentor.availabilities.create(availability_attributes)
       @appointment = Appointment.create(:mentor => @mentor, :mentee => @mentee, :availability => @availability)
     end
 
     context "with only a mentor" do
       it "should not be valid" do
-        invalid_appointment = @mentor.appointments.build
+        invalid_appointment = @mentor.mentoring_appointments.build
         expect(invalid_appointment.valid?).to eq(false)
       end
     end
 
     context "when created with a mentor and mentee" do
-      it "should not allow duplicate appointments on the same day" do
-        appointment2 = Appointment.create(:mentor => @mentor, :mentee => @mentee, :date => Date.today)
-        expect(appointment2.valid?).to eq(false)
-      end
-
       context "passing in an availability object" do
         it "should have a start_time equal to that of the availability object passed to it" do
           expect(@appointment.start_time).to eq(@availability.start_time)
@@ -33,10 +29,6 @@ describe Appointment do
 
         it "should have an end_time equal to that of the availability object passed to it" do
           expect(@appointment.end_time).to eq(@availability.end_time)
-        end
-
-        it "should have a date equal to that of the availability object passed to it" do
-          expect(@appointment.date).to eq(@availability.date)
         end
       end
 

@@ -1,6 +1,7 @@
 class Availability < ActiveRecord::Base
   attr_accessible :start_time, :duration, :timezone, :location
   attr_accessor :duration
+
   belongs_to :mentor, :class_name => "User"
 
   validates :start_time, :presence => true

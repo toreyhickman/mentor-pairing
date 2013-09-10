@@ -5,17 +5,16 @@ describe Availability do
 
   describe "when first created" do
     before(:each) do
-      @start_time = Time.new(2013, 1, 1)
-      @date = Date.today
-      @availability = Availability.create(:start_time => @start_time, :date => @date)
+      @start_time = DateTime.new(2013, 1, 1)
+      @availability = FactoryGirl.create(:availability, start_time: @start_time)
     end
 
     it "should have a start_time" do
       expect(@availability.start_time).to eq(@start_time)
     end
 
-    it "should have an end_time" do
-      expect(@availability.end_time).to eq(@start_time + 1800)
+    it "should have an end_time which is the duration times 60" do
+      expect(@availability.end_time).to eq(@availability.start_time + 1800)
     end
 
     context "length" do
@@ -23,7 +22,5 @@ describe Availability do
         expect(@availability.end_time - @availability.start_time).to eq(1800)
       end
     end
-
   end
-
 end

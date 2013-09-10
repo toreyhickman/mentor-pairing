@@ -31,6 +31,6 @@ class User < ActiveRecord::Base
   private
 
   def create_activation_code
-    self.activation_code = Digest::MD5.hexdigest(rand.to_s + Time.now.to_s + twitter_handle)
+    self.activation_code = Digest::MD5.hexdigest( rand.to_s + Time.now.to_s + (twitter_handle || ""))
   end
 end
