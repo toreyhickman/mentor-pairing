@@ -10,3 +10,12 @@ notifications:
   campfire:
     rooms:
       secure: AiQSo4xSHIkOTsVE/dCjnHUBjDDnx/K+t2s1ztqOuOMha379USO4/D6ZNkN2JwkZSi1fWm9bW9SqXCPIrk9PIBXMtVmiNrQYb0YPhV9l91QnFPqohnwDSknk9egGAWrGv1k3WrRZU1OhXWFALSJyZXdYpkBYR0Fm5uJykLW/7kE=
+deploy:
+  provider: heroku
+  app: pairing-is-caring
+  api_key:
+    secure: aLlgyK1cYU1I/6X+4OUYcFwUgSlLfc1XqhHuijMdZvZP1jCVMVJ+cKiplvMchRjzxSTNFkEVHD1jpkFvWkyYfsx4NQwOBZGHMnVZXBTYdp7MA8jBzC9FG2siAuhFwj5N90dipVgJnchieOWWXvoz+AKbn2OoyDWYd94dUZflfeY=
+  run: "rake db:migrate"
+  on:
+    branch: master
+    rvm: 2.0.0
