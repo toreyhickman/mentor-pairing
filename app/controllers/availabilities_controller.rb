@@ -14,6 +14,11 @@ class AvailabilitiesController < ApplicationController
     @availabilities = Availability.visible.order(:start_time)
     @appointments = Appointment.visible.order(:start_time)
     @featured = User.featured_mentors
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => build_json(@availabilities) }
+    end
   end
 
   def destroy
@@ -35,5 +40,15 @@ class AvailabilitiesController < ApplicationController
     new_time_params['start_time(2i)'] = month
     new_time_params['start_time(3i)'] = day
     new_time_params
+  end
+
+  def build_json(availabilities)
+    availabilities.map do |a|
+      list = [:start_time, :end_time, :timezone, :location].map {|attr| [attr, a[attr]]}
+      hash = Hash[list]
+      hash[:mentor_name] = a.mentor.name
+      hash[:mentor_url] = a.mentor.twitter_handle
+      hash
+    end
   end
 end
