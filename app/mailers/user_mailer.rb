@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
   def user_activation(user)
     @user = user
 
-    @url = "http://pairing-is-caring.herokuapp.com/activations/" + user.activation_code + "/user"
+    @url = "http://mentoring.devbootcamp.com/activations/" + user.activation_code + "/user"
 
     mail(:to => user.email, :subject => "Please confirm that you're an actual person")
   end
@@ -15,7 +15,7 @@ class UserMailer < ActionMailer::Base
     @mentor = availability.mentor
     @mentee = mentee
 
-    @url = "http://pairing-is-caring.herokuapp.com/appointments/" + @mentor.activation_code + "/create?mentee_id=#{@mentee.id}&availability_id=#{@availability.id}"
+    @url = "http://mentoring.devbootcamp.com/appointments/" + @mentor.activation_code + "/create?mentee_id=#{@mentee.id}&availability_id=#{@availability.id}"
 
     mail(:to => @mentor.email, :subject => "#{@mentee.name} has requested to learn with you")
   end

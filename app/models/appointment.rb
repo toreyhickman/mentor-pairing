@@ -1,5 +1,4 @@
 class Appointment < ActiveRecord::Base
-  attr_accessible :mentee, :mentor, :availability
   attr_accessor :availability
 
   belongs_to :mentor, :class_name => "User"
