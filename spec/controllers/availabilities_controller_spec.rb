@@ -12,7 +12,7 @@ describe AvailabilitiesController do
 
     it "returns mentor info with JSON" do
       FactoryGirl.create(:availability)
-      get :index, :format => "js"
+      get :index, :format => :json
       JSON.parse(response.body).first["mentor_name"].should == "Erik Allar"
     end
 

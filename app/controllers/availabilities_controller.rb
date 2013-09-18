@@ -17,7 +17,7 @@ class AvailabilitiesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.js { render :json => build_json(@availabilities) }
+      format.json { render :json => build_json(@availabilities) }
     end
   end
 
