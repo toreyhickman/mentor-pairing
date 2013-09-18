@@ -4,7 +4,7 @@ class ActivationsController < ApplicationController
     if user
       unless user.activated?
         user.update_attribute(:activated, true)
-        flash[:notice] = "Congrats, you are a real person!"
+        flash[:notice] = "Congrats, you are a real person! Bookmark this page if you want to manage your mentoring appointments."
       end
     else
       raise "User not found by #{params[:code]}"
