@@ -10,6 +10,12 @@ describe AvailabilitiesController do
       }.to change{Availability.count}.by(1)
     end
 
+    it "returns mentor info with JSON" do
+      FactoryGirl.create(:availability)
+      get :index, :format => "js"
+      JSON.parse(response.body).first["mentor_name"].should == "Erik Allar"
+    end
+
     it "handles datepicker style start times" do
       availability_params = {
         :duration => 30,
