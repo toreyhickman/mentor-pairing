@@ -1,23 +1,20 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'rails', '3.2.13'
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'pg'
-
-
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'compass-rails'
-  gem 'susy'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem "coffee-rails"
+gem "compass-rails", "~> 2.0.alpha.0"
+gem "jquery-rails"
+gem "jquery-ui-rails"
+gem "pg"
+gem "rails"
+gem "sass-rails"
+gem "susy"
+gem "uglifier"
 
 group :development, :test do
-  gem 'rake'
-  gem 'rspec-rails', '~> 2.0'
-  gem 'shoulda-matchers'
-  gem 'factory_girl_rails', '~> 4.0'
-  gem 'capybara'
+  gem "capybara"
+  gem "factory_girl_rails"
+  gem "pry-rails"
+  gem "rake"
+  gem "rspec-rails"
+  gem "shoulda-matchers"
 end
