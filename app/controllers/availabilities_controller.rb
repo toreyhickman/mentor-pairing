@@ -43,12 +43,16 @@ class AvailabilitiesController < ApplicationController
   end
 
   def build_json(availabilities)
-    availabilities.map do |a|
+    public_data = availabilities.map do |a|
       list = [:start_time, :end_time, :timezone, :location].map {|attr| [attr, a[attr]]}
       hash = Hash[list]
       hash[:mentor_name] = a.mentor.name
       hash[:mentor_url] = a.mentor.twitter_handle
       hash
     end
+
+    json = public_data.to_json
+    json = params[:callback] + "(" + json + ")" if params[:callback].present?
+    json
   end
 end
