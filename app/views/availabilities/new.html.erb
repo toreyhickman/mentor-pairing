@@ -3,6 +3,18 @@
     <div class="field"><label>Name</label><%= text_field_tag :first_name %><%= text_field_tag :last_name %></div>
     <div class="field"><label>Twitter handle<span class="addon">@</span></label><%= text_field_tag :twitter_handle %></div>
     <div class="field"><label>Email address</label><%= text_field_tag :email %></div>
+
+    <!-- optional/hidden form fields -->
+    <div class="field">
+      <label>Your tech interests</label>
+      <%= text_field_tag :interests %>
+    </div>
+
+    <div class="field">
+      <label>A brief bio</label>
+      <textarea name="bio"></textarea>
+    </div>
+
     <div class="field">
       <label>Date &amp; time available for mentoring</label>
       <%= text_field_tag 'availability[start_time_1s]', Date.current, :name => 'availability[start_time(1s)]' %>
