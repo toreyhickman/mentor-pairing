@@ -5,14 +5,16 @@
     <div class="field"><label>Email address</label><%= text_field_tag :email %></div>
 
     <!-- optional/hidden form fields -->
-    <div class="field">
-      <label>Your tech interests</label>
-      <%= text_field_tag :interests %>
-    </div>
+    <div id="optional_fields" class="hidden">
+      <div class="field">
+        <label>Your tech interests</label>
+        <%= text_field_tag :interests %>
+      </div>
 
-    <div class="field">
-      <label>A brief bio</label>
-      <textarea name="bio"></textarea>
+      <div class="field">
+        <label>A brief bio</label>
+        <textarea name="bio" hidden="true"></textarea>
+      </div>
     </div>
 
     <div class="field">
