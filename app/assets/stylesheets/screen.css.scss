@@ -233,6 +233,11 @@ label {
 
 /* $ICONS ********************************************************************/
 
+
+.panel img {
+ border-radius: 6px;
+}
+
 .profile h4 {
 	padding-top: 10px;
 }
@@ -241,6 +246,7 @@ label {
 	background: #E6E6E6;
 	margin-left: 10px;
 	border-radius: 4px;
+	padding: 10px;
 }
 
 .profile > ol > li:first-child{
@@ -256,4 +262,18 @@ label {
 	position: relative;
 	top:10px;
 	left: 20px;
+}
+img.profpic{
+	float:left;
+	margin: 10px 0 0 0;
+}
+
+.profile{
+	min-height: 140px;
+}
+.profile .content{
+	width: 75%;
+	padding:0px 10px;
+	margin: 0 10px;
+	display: inline-block;
 }
