@@ -13,6 +13,7 @@
 <% @availabilities.each do |a| %>
 <div class="panel">
 	<p>
+		<%= image_tag a.mentor.gravatar_url %>
 		<span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
 	  <%= link_to a.mentor.name, user_path(a.mentor) %>
 	  on <%= display_availability(a) %>

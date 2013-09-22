@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Gravtastic
+  gravtastic
   has_many :availabilities, :foreign_key => :mentor_id
   has_many :mentoring_appointments, :foreign_key => :mentor_id, :class_name => "Appointment"
   has_many :menteeing_appointments, :foreign_key => :mentee_id, :class_name => "Appointment"
