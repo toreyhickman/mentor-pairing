@@ -1,1 +1,25 @@
 
+<div class="panel">
+   <h2><%=@user.name%></h2>
+<ol>
+ 
+  <li><%= @user.email%></li>
+  <li><a href=<%= href_to_twitters_user(@user) %>><%= "@#{@user.try(:twitter_handle)}" %></a></li>
+  <li>
+    <% if @user.bio %>
+    Here's the bio for this user:
+      <%=  @user.bio%>
+    <% end %>
+  </li>
+  <li>
+    <% if @user.interests %>
+    I'd like to mentor on these topics:
+      <%=  @user.interests %>
+    <% end %>
+  </li>
+</ol>
+  
+  
+  
+  
+</div>

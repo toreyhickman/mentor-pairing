@@ -19,4 +19,8 @@ module ApplicationHelper
   def link_to_user(m)
     link_to(m.name, "https://twitter.com/" + m.twitter_handle)
   end
+
+    def href_to_twitters_user(m)
+    "https://twitter.com/" + m.twitter_handle
+  end
 end
