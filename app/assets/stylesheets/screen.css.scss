@@ -17,6 +17,7 @@
 	* Typography
 	* Anchors
 	* Form Elements
+	* Tabs
 
 *******************************************************************************/
 
@@ -100,6 +101,7 @@ footer {
 	padding: 1em 2em;
 	text-align: left;
 	margin-bottom: 1em;
+	clear: both;
 	& a {
 		font-weight: bold;
 	}
@@ -192,6 +194,25 @@ input {
 	}
 }
 
+textarea {
+	@include border-radius(5px);
+	width: 287px;
+	height: 80px;
+	background-color: $input-base;
+	border: 1px solid #ccc;
+	font-size: 1em;
+	padding: 0.5em;
+	&[type=submit]{
+		@include box-shadow(3px 3px 1px $accent-dark);
+		@include text-shadow(1px 1px 1px $text-shadow);
+		background-color: $accent-light;
+		border: none;
+		color: #fff;
+		padding: 0.5em 1em;
+		text-align: right;
+	}
+}
+
 select {
 	font-size: 1em;
 }
@@ -217,6 +238,10 @@ label {
   font-weight: bold;
 }
 
+.hidden {
+	display: none;
+}
+
 /* $ICONS ********************************************************************/
 
 .icon {
@@ -229,10 +254,6 @@ label {
     vertical-align: middle;
   }
  }
-
-
-/* $ICONS ********************************************************************/
-
 
 .panel img {
  border-radius: 6px;
@@ -264,6 +285,7 @@ label {
 	left: 20px;
 	width:40px;
 }
+
 img.profpic{
 	float:left;
 	margin: 10px 0 0 0;
@@ -272,9 +294,38 @@ img.profpic{
 .profile{
 	min-height: 140px;
 }
+
 .profile .content{
 	width: 75%;
 	padding:0px 10px;
 	margin: 0 10px;
 	display: inline-block;
 }
+
+
+/* $TABS ********************************************************************/
+
+.tabs {
+	margin-left: 20px;
+	height: 38px;
+	overflow: hidden;
+}
+
+.tab {
+	margin-right: 3px;
+	padding: 0.5em;
+	float: left;
+	background-color: $input-base;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	@include box-shadow(3px 3px 1px $base-shadow);
+}
+
+.tab:hover{
+	cursor: pointer;
+}
+
+.tab.active {
+	background-color: $primary;
+}
+
