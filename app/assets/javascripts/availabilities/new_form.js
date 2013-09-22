@@ -12,9 +12,13 @@ var FindByEmail = {
   populate: function(response) {
     if (response.no_user) {}
     else {
+      console.log(response.bio)
+      console.log(response.interests)
       $('#first_name').val(response.first_name);
       $('#last_name').val(response.last_name);
-      $('#twitter_handle').val(response.twitter_handle)
+      $('#twitter_handle').val(response.twitter_handle);
+      $('#bio').val(response.bio);
+      $('#interests').val(response.interests)
     }
   }
 }

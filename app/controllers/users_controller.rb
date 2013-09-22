@@ -20,7 +20,9 @@ class UsersController < ApplicationController
           if user
             render :json => { :first_name => user.first_name,
                               :last_name => user.last_name,
-                              :twitter_handle => user.twitter_handle }
+                              :twitter_handle => user.twitter_handle,
+                              :bio => user.bio,
+                              :interests => user.interests}
           else
             render :json => { :no_user => true }
           end
