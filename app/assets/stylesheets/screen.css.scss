@@ -273,6 +273,10 @@ label {
 	@include box-shadow(3px 3px 1px $base-shadow);
 }
 
+.tab:hover{
+	cursor: pointer;
+}
+
 .tab.active {
 	background-color: $primary;
 }
