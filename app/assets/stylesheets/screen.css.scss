@@ -192,6 +192,25 @@ input {
 	}
 }
 
+textarea {
+	@include border-radius(5px);
+	width: 287px;
+	height: 80px;
+	background-color: $input-base;
+	border: 1px solid #ccc;
+	font-size: 1em;
+	padding: 0.5em;
+	&[type=submit]{
+		@include box-shadow(3px 3px 1px $accent-dark);
+		@include text-shadow(1px 1px 1px $text-shadow);
+		background-color: $accent-light;
+		border: none;
+		color: #fff;
+		padding: 0.5em 1em;
+		text-align: right;
+	}
+}
+
 select {
 	font-size: 1em;
 }
