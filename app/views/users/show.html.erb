@@ -1,26 +1,28 @@
 <h2><%=@user.name%></h2>
 <div class="panel profile">
 
-  <ol>
-    <li>   
-      <a href=<%= href_to_twitters_user(@user) %>><%= "@#{@user.try(:twitter_handle)}" %><%= image_tag("twitter_black_logo.jpg")%></a></li>
-      <%= image_tag @user.gravatar_url, class: 'profpic' %>
-      <div class ='content'>
-      <li>
-          <% if @user.bio %>
-          <h4><%= @user.first_name %>'s bio:</h4>
-          <blockquote><%=  @user.bio%></blockquote>
-          <% end %>
-        </li>
-        <li>
-          <% if @user.interests %>
-          <h4>I'd like to mentor on these topics:</h4>
-          <blockquote><%=  @user.interests %></blockquote>
-          <% end %>
-        </li>
-      </ol>
-    </div>
+  <div class="profile_pic_wrap left">
+    <%= image_tag @user.gravatar_url, class: 'profpic' %>
   </div>
+
+  <div class="profile_content_wrap right">
+    <p>
+      <a href=<%= href_to_twitters_user(@user) %>><%= "@#{@user.try(:twitter_handle)}" %><%= image_tag("twitter_black_logo.jpg")%></a>
+    </p>
+
+    <% if @user.bio %>
+      <h4><%= @user.first_name %>'s bio:</h4>
+      <blockquote>
+        <%=  @user.bio%>
+      </blockquote>
+    <% end %>
+
+    <% if @user.interests %>
+      <h4>I'd like to mentor on these topics:</h4>
+      <blockquote><%=  @user.interests %></blockquote>
+    <% end %>
+  </div>
+</div>
 
 
 <h2> Upcoming availabilities</h2>
@@ -34,8 +36,8 @@
   </p>
 </div>
 <% end %>
-  
-  
-  
-  
+
+
+
+
 
