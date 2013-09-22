@@ -1,0 +1,39 @@
+<h2><%=@user.name%></h2>
+<div class="panel profile">
+   
+<ol>
+ 
+  <li>   
+    <a href=<%= href_to_twitters_user(@user) %>><%= "@#{@user.try(:twitter_handle)}" %><%= image_tag("twitter_32.png")%></a></li>
+  <li>
+    <% if @user.bio %>
+    <h4><%= @user.first_name %>'s bio:</h4>
+      <blockquote><%=  @user.bio%></blockquote>
+    <% end %>
+  </li>
+  <li>
+    <% if @user.interests %>
+    <h4>I'd like to mentor on these topics:</h4>
+      <blockquote><%=  @user.interests %></blockquote>
+    <% end %>
+  </li>
+</ol>
+</div>
+
+
+<h2> Upcoming availabilities</h2>
+<% @user.availabilities.visible.order("start_time").each do |a| %>
+<div class="panel">
+  <p>
+    <span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
+    <%= link_to a.mentor.name, user_path(a.mentor) %>
+    on <%= display_availability(a) %>
+    <%= link_to "Sign up", new_appointment_request_path(:availability_id => a.id) %>
+  </p>
+</div>
+<% end %>
+  
+  
+  
+  
+

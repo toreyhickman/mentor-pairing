@@ -255,6 +255,31 @@ label {
   }
  }
 
+ .profile h4 {
+	padding-top: 10px;
+}
+
+.profile blockquote {
+	background: #E6E6E6;
+	margin-left: 10px;
+	border-radius: 4px;
+}
+
+.profile > ol > li:first-child{
+	padding: 0;
+	height: 30px;
+}
+.profile > ol > li:first-child > a{
+	float: right;
+	background: none;
+}
+.profile > ol > li:first-child > a > img{
+	margin: 0 5px;
+	position: relative;
+	top:10px;
+	left: 20px;
+}
+
 /* $TABS ********************************************************************/
 
 .tabs {
