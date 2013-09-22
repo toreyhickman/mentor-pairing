@@ -17,6 +17,7 @@
 	* Typography
 	* Anchors
 	* Form Elements
+	* Tabs
 
 *******************************************************************************/
 
@@ -100,6 +101,7 @@ footer {
 	padding: 1em 2em;
 	text-align: left;
 	margin-bottom: 1em;
+	clear: both;
 	& a {
 		font-weight: bold;
 	}
@@ -252,3 +254,25 @@ label {
     vertical-align: middle;
   }
  }
+
+/* $TABS ********************************************************************/
+
+.tabs {
+	margin-left: 20px;
+	height: 38px;
+	overflow: hidden;
+}
+
+.tab {
+	margin-right: 3px;
+	padding: 0.5em;
+	float: left;
+	background-color: $input-base;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	@include box-shadow(3px 3px 1px $base-shadow);
+}
+
+.tab.active {
+	background-color: $primary;
+}
