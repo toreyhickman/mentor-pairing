@@ -1,3 +1,5 @@
+<button id="show-calendar" class="link">My Calendar</button>
+<%= render partial: "calendar", :locals => {:events => @mentoring_appointments} %>
 <% unless @availabilities.empty? %><h2>My upcoming availability</h2><% end %>
 <% @availabilities.each do |a| %>
 <div class="panel">
@@ -13,7 +15,7 @@
 <div class="panel">
 	<p>
 	  <%= display_appointment(a) %>
-	</p>  
+	</p>
 </div>
 <% end %>
 

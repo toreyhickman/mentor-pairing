@@ -11,9 +11,9 @@ describe AvailabilitiesController do
     end
 
     it "returns mentor info with JSON" do
-      FactoryGirl.create(:availability)
+      availability = FactoryGirl.create(:availability)
       get :index, :format => :json
-      JSON.parse(response.body).first["mentor_name"].should == "Erik Allar"
+      JSON.parse(response.body).first["mentor_name"].should == availability.mentor.name
     end
 
     it "handles datepicker style start times" do
