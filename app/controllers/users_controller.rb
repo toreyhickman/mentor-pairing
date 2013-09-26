@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  require 'json'
-
   def show
     @user = User.find(params[:id])
   end

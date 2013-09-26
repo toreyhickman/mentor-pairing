@@ -10,10 +10,7 @@ var FindByEmail = {
     }).done(FindByEmail.populate);
   },
   populate: function(response) {
-    if (response.no_user) {}
-    else {
-      console.log(response.bio)
-      console.log(response.interests)
+    if (!response.no_user) {
       $('#first_name').val(response.first_name);
       $('#last_name').val(response.last_name);
       $('#twitter_handle').val(response.twitter_handle);
