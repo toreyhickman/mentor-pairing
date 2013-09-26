@@ -1,8 +1,0 @@
-class Profile
-
-belongs_to :mentor, :class_name => "User"
-
-has_one :profile, :foreign_key => :mentor_id
-
-class Game
-
