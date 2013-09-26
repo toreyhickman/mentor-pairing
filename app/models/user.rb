@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_many :mentoring_appointments, :foreign_key => :mentor_id, :class_name => "Appointment"
   has_many :menteeing_appointments, :foreign_key => :mentee_id, :class_name => "Appointment"
 
+  validates_uniqueness_of :email
+
   before_create :create_activation_code
 
   def self.featured_mentors
