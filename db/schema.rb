@@ -23,16 +23,16 @@ ActiveRecord::Schema.define(version: 20130922194636) do
     t.datetime "end_time"
     t.string   "timezone"
     t.string   "location"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "availabilities", force: true do |t|
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer  "mentor_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "timezone"
     t.string   "location"
   end
@@ -43,12 +43,14 @@ ActiveRecord::Schema.define(version: 20130922194636) do
     t.string   "last_name"
     t.string   "activation_code"
     t.boolean  "activated"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "twitter_handle"
     t.text     "bio"
     t.string   "interests"
     t.string   "gravatar_url"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
