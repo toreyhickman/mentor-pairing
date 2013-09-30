@@ -56,10 +56,10 @@ $input-base:			#efefef;
 
 /* $GRID **********************************************************************/
 
-$total-columns:	8;
-$column-width:	4em;
-$gutter-width:	1em;
-$grid-padding:	$gutter-width;
+$total-columns: 12;
+$column-width: 60px;
+$gutter-width: 20px;
+$grid-padding: 10px;
 
 /* $BASE **********************************************************************/
 
@@ -106,6 +106,18 @@ footer {
 	& a {
 		font-weight: bold;
 	}
+
+  a {
+    background-color: #e9f193;
+    border-bottom: 1px dashed $accent-light;
+    color: $accent-dark;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover {
+      border-bottom: 1px solid $accent-light;
+      color: $foreground;
+    }
+  }
 }
 
 .alert {
@@ -123,6 +135,74 @@ footer {
 	float: right;
 }
 
+@mixin in-the-main-section {
+  h2 {
+    @include text-shadow(1px 1px 1px $base-shadow);
+    color: $contrast;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+}
+
+#availabilities {
+  @media screen and (min-width: 720px) {
+    @include span-columns(8, 12);
+  }
+
+  @media screen and (max-width: 719px) {
+    @include span-columns(12, 12);
+  }
+
+  @include in-the-main-section
+}
+
+@mixin in-the-side-bar {
+  clear: right;
+  margin-bottom: 15px;
+
+  h2 {
+    @include text-shadow(1px 1px 1px $base-shadow);
+    color: $contrast;
+    padding: 0 0 20px 0;
+  }
+
+  .panel {
+    font-size: .75em;
+    background-color: lighten($base, 10%);
+    @include box-shadow(0 0 0);
+    @include box-shadow(3px 3px 1px lighten($base-shadow, 10%));
+    text-align: center;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+#appointments {
+  @media screen and (min-width: 720px) {
+    @include span-columns(4 omega, 12);
+    @include in-the-side-bar;
+  }
+
+  @media screen and (max-width: 719px) {
+    @include span-columns(12, 12);
+    @include in-the-main-section;
+  }
+}
+
+#featured_mentors {
+  @media screen and (min-width: 720px) {
+    @include span-columns(4 omega, 12);
+    @include in-the-side-bar;
+  }
+
+  @media screen and (max-width: 719px) {
+    @include span-columns(12, 12);
+    @include in-the-main-section;
+  }
+}
+
 /* $TYPOGRAPHY ****************************************************************/
 
 h1 {
@@ -136,16 +216,6 @@ h1 {
 	}
 }
 
-h2 {
-	@include text-shadow(1px 1px 1px $base-shadow);
-	border-bottom: 2px solid $border;
-	border-top: 2px solid $border;
-	color: $contrast;
-	font-size: 2em;
-	margin-bottom: 1em;
-	padding: 0.5em 0;
-}
-
 p {
 	margin: 2em 0;
 }
@@ -153,15 +223,9 @@ p {
 /* $ANCHORS *******************************************************************/
 
 a {
-	background-color: #e9f193;
-	border-bottom: 1px dashed $accent-light;
-	color: $accent-dark;
+	color: $primary;
 	font-weight: bold;
 	text-decoration: none;
-	&:hover {
-		border-bottom: 1px solid $accent-light;
-		color: $foreground;
-	}
 }
 
 a.link {

@@ -1,45 +1,58 @@
+<!--
 <h2>Upcoming Events</h2>
 <div class="panel">
   <p><span aria-hidden="true" class="icon" data-icon="&hearts;"></span>Mock Interview Night in Chicago is Tuesday, September 24 from 5:30 until 7:30.  Email <a href="mailto:alex@devbootcamp.com">Alex</a> if you are avalible to help out with this event.</p>
 </div>
+-->
 
+<div id="availabilities">
+  <h2>Available Mentoring Opportunities</h2>
 
-<h2>Available Mentoring Opportunities</h2>
-<% if @availabilities.empty? %>
+  <% if @availabilities.empty? %>
+    <div class="panel">
+  	  <p><span aria-hidden="true" class="icon" data-icon="&hearts;"></span> There isn't currently any upcoming mentoring availibility. <%= link_to "Offer to mentor someone!", new_availability_path %></p>
+  	</div>
+  <% end %>
+
+  <% @availabilities.each do |a| %>
+    <div class="panel">
+    	<p>
+    		<%= image_tag a.mentor.gravatar_url, :class => "left" %>
+    		<span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
+    	  <%= link_to a.mentor.name, user_path(a.mentor) %>
+    	  on <%= display_availability(a) %>
+    	</p>
+    	<p>
+    		<%= link_to "Sign up", new_appointment_request_path(:availability_id => a.id) %>
+    	</p>
+    </div>
+  <% end %>
+</div>
+
+<div id="appointments">
+  <% unless @appointments.empty? %><h2>Upcoming Mentoring Appointments</h2><% end %>
+  <% @appointments.each do |a| %>
   <div class="panel">
-	  <p><span aria-hidden="true" class="icon" data-icon="&hearts;"></span> There isn't currently any upcoming mentoring availibility. <%= link_to "Offer to mentor someone!", new_availability_path %></p>
-	</div>
-<% end %>
-<% @availabilities.each do |a| %>
-<div class="panel">
-	<p>
-		<%= image_tag a.mentor.gravatar_url, :class => "left" %>
-		<span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
-	  <%= link_to a.mentor.name, user_path(a.mentor) %>
-	  on <%= display_availability(a) %>
-	</p>
-	<p>
-		<%= link_to "Sign up", new_appointment_request_path(:availability_id => a.id) %>
-	</p>
+    <p>
+      <%= link_to_user(a.mentor) %>
+      <span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
+      <%= link_to_user(a.mentee) %>
+    </p>
+    <p>
+      in <%= distance_of_time_in_words(Time.now, a.start_time) %> at <%= a.location %>
+    </p>
+  </div>
+  <% end %>
 </div>
-<% end %>
 
-<% unless @appointments.empty? %><h2>Upcoming Mentoring Appointments</h2><% end %>
-<% @appointments.each do |a| %>
-<div class="panel">
-	<p>
-		<span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
-	  <%= display_appointment(a) %>
-	</p>
+<div id="featured_mentors">
+  <h2>Featured Mentors</h2>
+  <div class="panel">
+  <% @featured.each do |user| %>
+    <p>
+      <span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
+      <%= link_to_user user %>
+    </p>
+  <% end %>
+  </div>
 </div>
-<% end %>
-
-<h2>Featured Mentors</h2>
-<% @featured.each do |user| %>
-<div class="panel">
-	<p>
-		<span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
-		<%= link_to_user user %>
-	</p>
-</div>
-<% end %>
