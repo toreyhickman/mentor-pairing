@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130925052501) do
+ActiveRecord::Schema.define(version: 20130928154603) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "appointments", force: true do |t|
     t.integer  "mentor_id"
@@ -20,18 +23,27 @@ ActiveRecord::Schema.define(version: 20130925052501) do
     t.datetime "end_time"
     t.string   "timezone"
     t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "availabilities", force: true do |t|
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer  "mentor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "timezone"
     t.string   "location"
+  end
+
+  create_table "kudos", force: true do |t|
+    t.integer  "appointment_id"
+    t.integer  "mentor_id"
+    t.integer  "mentee_id"
+    t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -40,9 +52,11 @@ ActiveRecord::Schema.define(version: 20130925052501) do
     t.string   "last_name"
     t.string   "activation_code"
     t.boolean  "activated"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "twitter_handle"
+    t.integer  "total_kudos",       default: 0
+    t.integer  "total_given_kudos", default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
