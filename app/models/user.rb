@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :availabilities, :foreign_key => :mentor_id
   has_many :mentoring_appointments, :foreign_key => :mentor_id, :class_name => "Appointment"
   has_many :menteeing_appointments, :foreign_key => :mentee_id, :class_name => "Appointment"
+  has_many :received_kudos, :foreign_key => :mentor_id, :class_name => 'Kudo'
+  has_many :given_kudos, :foreign_key => :mentee_id, :class_name => 'Kudo'
 
   validates_uniqueness_of :email
 
