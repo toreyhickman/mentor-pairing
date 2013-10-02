@@ -9,6 +9,9 @@ gem "rails"
 gem "sass-rails"
 gem "susy"
 gem "uglifier"
+gem  "gravtastic"
+
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem "capybara"

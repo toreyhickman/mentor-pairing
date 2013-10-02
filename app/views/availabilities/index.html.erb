@@ -7,20 +7,25 @@
 
 <div id="availabilities">
   <h2>Available Mentoring Opportunities</h2>
+
   <% if @availabilities.empty? %>
-  <div class="panel">
-    <p><span aria-hidden="true" class="icon" data-icon="&hearts;"></span> There isn't currently any upcoming mentoring availibility. <%= link_to "Offer to mentor someone!", new_availability_path %></p>
-  </div>
+    <div class="panel">
+  	  <p><span aria-hidden="true" class="icon" data-icon="&hearts;"></span> There isn't currently any upcoming mentoring availibility. <%= link_to "Offer to mentor someone!", new_availability_path %></p>
+  	</div>
   <% end %>
+
   <% @availabilities.each do |a| %>
-  <div class="panel">
-    <p>
-      <span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
-      <%= link_to_user(a.mentor) %>
-      on <%= display_availability(a) %>
-      <%= link_to "Sign up", new_appointment_request_path(:availability_id => a.id) %>
-    </p>
-  </div>
+    <div class="panel">
+    	<p>
+    		<%= image_tag a.mentor.gravatar_url, :class => "left" %>
+    		<span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
+    	  <%= link_to a.mentor.name, user_path(a.mentor) %>
+    	  on <%= display_availability(a) %>
+    	</p>
+    	<p>
+    		<%= link_to "Sign up", new_appointment_request_path(:availability_id => a.id) %>
+    	</p>
+    </div>
   <% end %>
 </div>
 

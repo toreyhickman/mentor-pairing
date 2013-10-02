@@ -17,6 +17,7 @@
 	* Typography
 	* Anchors
 	* Form Elements
+	* Tabs
 
 *******************************************************************************/
 
@@ -100,6 +101,8 @@ footer {
 	padding: 1em 2em;
 	text-align: left;
 	margin-bottom: 1em;
+	clear: both;
+	overflow: hidden;
 	& a {
 		font-weight: bold;
 	}
@@ -122,6 +125,14 @@ footer {
 	color: #fff;
 	margin-bottom: 0;
 	margin-top: 0;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
 }
 
 @mixin in-the-main-section {
@@ -256,6 +267,25 @@ input {
 	}
 }
 
+textarea {
+	@include border-radius(5px);
+	width: 287px;
+	height: 80px;
+	background-color: $input-base;
+	border: 1px solid #ccc;
+	font-size: 1em;
+	padding: 0.5em;
+	&[type=submit]{
+		@include box-shadow(3px 3px 1px $accent-dark);
+		@include text-shadow(1px 1px 1px $text-shadow);
+		background-color: $accent-light;
+		border: none;
+		color: #fff;
+		padding: 0.5em 1em;
+		text-align: right;
+	}
+}
+
 select {
 	font-size: 1em;
 }
@@ -281,6 +311,10 @@ label {
   font-weight: bold;
 }
 
+.hidden {
+	display: none;
+}
+
 /* $ICONS ********************************************************************/
 
 .icon {
@@ -293,3 +327,95 @@ label {
     vertical-align: middle;
   }
  }
+
+ /* $PROFILE *****************************************************************/
+
+.panel img {
+ border-radius: 5px;
+ margin-right: 1em;
+}
+
+.profile h4 {
+	padding-top: 10px;
+}
+
+.profile blockquote {
+	background: #E6E6E6;
+	margin-left: 10px;
+	border-radius: 4px;
+	padding: 10px;
+}
+
+.profile > ol > li:first-child{
+	padding: 0;
+	height: 30px;
+}
+.profile > ol > li:first-child > a{
+	float: right;
+	background: none;
+}
+
+.profile_content_wrap {
+	width: 460px;
+}
+
+.profile_content_wrap img{
+	margin: 0 0 0 16px;
+	position: relative;
+	top:10px;
+	left: 20px;
+	width:40px;
+}
+
+.profile_content_wrap p:first-child {
+	padding-top: 0;
+	margin-top: 0;
+	text-align: right;
+}
+
+.profile_content_wrap blockquote {
+	margin: 1em 0 2em 0;
+}
+
+img.profpic{
+	float:left;
+	margin: 10px 0 0 0;
+}
+
+.profile{
+	min-height: 140px;
+}
+
+.profile .content{
+	width: 75%;
+	padding:0px 10px;
+	margin: 0 10px;
+	display: inline-block;
+}
+
+/* $TABS ********************************************************************/
+
+.tabs {
+	margin-left: 20px;
+	height: 38px;
+	overflow: hidden;
+}
+
+.tab {
+	margin-right: 3px;
+	padding: 0.5em;
+	float: left;
+	background-color: $input-base;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	@include box-shadow(3px 3px 1px $base-shadow);
+}
+
+.tab:hover{
+	cursor: pointer;
+}
+
+.tab.active {
+	background-color: $primary;
+}
+

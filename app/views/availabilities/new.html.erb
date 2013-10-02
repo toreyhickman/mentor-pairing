@@ -1,8 +1,31 @@
+<div class="tabs">
+  <div id="basics" class="tab active">
+    The Basics
+  </div>
+  <div id="more" class="tab">
+    Tell Us More
+  </div>
+</div>
+
 <div class="panel">
   <%= form_tag availabilities_path do %>
+    <div class="field"><label>Email address</label><%= text_field_tag :email %></div>
     <div class="field"><label>Name</label><%= text_field_tag :first_name %><%= text_field_tag :last_name %></div>
     <div class="field"><label>Twitter handle<span class="addon">@</span></label><%= text_field_tag :twitter_handle %></div>
-    <div class="field"><label>Email address</label><%= text_field_tag :email %></div>
+
+    <!-- optional/hidden form fields -->
+    <div id="optional_fields" class="hidden">
+      <div class="field">
+        <label>Your tech interests</label>
+        <%= text_field_tag :interests %>
+      </div>
+
+      <div class="field">
+        <label>A brief bio</label>
+        <textarea name="bio", id="bio"></textarea>
+      </div>
+    </div>
+
     <div class="field">
       <label>Date &amp; time available for mentoring</label>
       <%= text_field_tag 'availability[start_time_1s]', Date.current, :name => 'availability[start_time(1s)]' %>
