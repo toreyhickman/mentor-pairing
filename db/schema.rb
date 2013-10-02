@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131002072808) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "appointment_requests", force: true do |t|
     t.integer  "availability_id"
     t.integer  "mentee_id"
@@ -50,6 +53,9 @@ ActiveRecord::Schema.define(version: 20131002072808) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "twitter_handle"
+    t.text     "bio"
+    t.string   "interests"
+    t.string   "gravatar_url"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
