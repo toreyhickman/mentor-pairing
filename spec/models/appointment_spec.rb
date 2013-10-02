@@ -31,6 +31,10 @@ describe Appointment do
         it "should have an end_time equal to that of the availability object passed to it" do
           expect(@appointment.end_time).to eq(@availability.end_time)
         end
+
+        it "should create a kudo object" do
+          expect(@appointment.mentor.received_kudos.count).to eq(1)
+        end
       end
 
     end
