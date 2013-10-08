@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   before_create :create_activation_code
 
   def self.featured_mentors
-    Appointment.limit(25).map(&:mentor).uniq.sort_by(&:name)
+    limit(10).order("total_kudos DESC")
   end
 
   def name
