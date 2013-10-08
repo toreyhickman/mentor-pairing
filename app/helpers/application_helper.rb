@@ -17,6 +17,6 @@ module ApplicationHelper
   end
 
   def link_to_user(m)
-    link_to(m.name, "https://twitter.com/" + m.twitter_handle)
+    link_to(m.name + " - #{m.total_kudos}", "https://twitter.com/" + m.twitter_handle)
   end
 end
