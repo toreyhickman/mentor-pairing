@@ -9,7 +9,7 @@ class Appointment < ActiveRecord::Base
   validates :mentee, :presence => true
 
   before_create :parse_availability
-  after_create :kill_availability, :create_kudos
+  after_create :kill_availability, :create_kudo
 
   scope :visible, Proc.new {
     where("start_time > ?", Time.now)
@@ -28,7 +28,7 @@ class Appointment < ActiveRecord::Base
     availability.destroy
   end
 
-  def create_kudos
+  def create_kudo
     self.kudos.create(mentor_id: self.mentor.id, mentee_id: self.mentee_id)
   end
 end
