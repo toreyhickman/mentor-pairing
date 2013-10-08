@@ -216,6 +216,14 @@ footer {
     @include span-columns(12, 12);
     @include in-the-main-section;
   }
+
+  .panel {
+    text-align: left;
+
+    .icon {
+      margin-right: .5EM;
+    }
+  }
 }
 
 /* $TYPOGRAPHY ****************************************************************/
