@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def link_to_user(m)
-    link_to(m.name, href_to_twitters_user(m))
+    link_to(m.name + " - #{m.total_kudos}", href_to_twitters_user(m))
   end
 
   def href_to_twitters_user(m)
