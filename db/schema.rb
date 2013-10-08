@@ -30,18 +30,27 @@ ActiveRecord::Schema.define(version: 20131002072808) do
     t.datetime "end_time"
     t.string   "timezone"
     t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "availabilities", force: true do |t|
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer  "mentor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "timezone"
     t.string   "location"
+  end
+
+  create_table "kudos", force: true do |t|
+    t.integer  "appointment_id"
+    t.integer  "mentor_id"
+    t.integer  "mentee_id"
+    t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -50,12 +59,14 @@ ActiveRecord::Schema.define(version: 20131002072808) do
     t.string   "last_name"
     t.string   "activation_code"
     t.boolean  "activated"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "twitter_handle"
     t.text     "bio"
     t.string   "interests"
     t.string   "gravatar_url"
+    t.integer  "total_kudos",       default: 0
+    t.integer  "total_given_kudos", default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
