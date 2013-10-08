@@ -189,6 +189,15 @@ footer {
     @include span-columns(12, 12);
     @include in-the-main-section;
   }
+
+  .appointment {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
 }
 
 #featured_mentors {

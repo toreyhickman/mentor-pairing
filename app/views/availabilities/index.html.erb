@@ -31,18 +31,20 @@
 
 <div id="appointments">
   <% unless @appointments.empty? %><h2>Upcoming Mentoring Appointments</h2><% end %>
-  <% @appointments.each do |a| %>
   <div class="panel">
-    <p>
-      <%= link_to_user(a.mentor) %>
-      <span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
-      <%= link_to_user(a.mentee) %>
-    </p>
-    <p>
-      in <%= distance_of_time_in_words(Time.now, a.start_time) %> at <%= a.location %>
-    </p>
+    <% @appointments.each do |a| %>
+      <div class="appointment">
+        <p>
+          <%= link_to_user(a.mentor) %>
+          <span aria-hidden="true" class="icon" data-icon="&hearts;"></span>
+          <%= link_to_user(a.mentee) %>
+        </p>
+        <p>
+          in <%= distance_of_time_in_words(Time.now, a.start_time) %> at <%= a.location %>
+        </p>
+      </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
 
 <div id="featured_mentors">
