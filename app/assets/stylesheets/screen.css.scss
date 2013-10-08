@@ -189,6 +189,21 @@ footer {
     @include span-columns(12, 12);
     @include in-the-main-section;
   }
+
+  .appointment {
+    border-bottom: 1px dashed $base-shadow;
+    padding: 24px 0;
+
+    &:first-child {
+      padding-top: 8px;
+    }
+
+    &:last-child {
+      padding-bottom: 8px;
+      border: none;
+    }
+  }
+
 }
 
 #featured_mentors {
@@ -200,6 +215,14 @@ footer {
   @media screen and (max-width: 719px) {
     @include span-columns(12, 12);
     @include in-the-main-section;
+  }
+
+  .panel {
+    text-align: left;
+
+    .icon {
+      margin-right: .5EM;
+    }
   }
 }
 

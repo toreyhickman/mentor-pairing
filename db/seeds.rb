@@ -11,7 +11,7 @@ def random_token
   foo.sample(5).join
 end
 
-5.times do
+7.times do
   random = random_token
   u = User.create!(
     email: "mentor-#{random}@example.com",
@@ -35,5 +35,11 @@ mentee = User.create!(
   twitter_handle: "mentee"
 )
 
-a = Availability.order("random()").first
+availabilities = Availability.order("random()")
+a = availabilities[0]
+b = availabilities[1]
+c = availabilities[2]
+
 Appointment.create!(mentee: mentee, mentor: a.mentor, availability: a)
+Appointment.create!(mentee: mentee, mentor: b.mentor, availability: b)
+Appointment.create!(mentee: mentee, mentor: c.mentor, availability: c)
