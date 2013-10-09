@@ -86,7 +86,24 @@ header {
 }
 
 nav {
-	margin-top: 7em;
+	margin: 5.5em auto 0 auto;
+  width: 570px;
+  padding: 6px 3px 3px 3px;
+  overflow: auto;
+
+  a {
+    width: 220px;
+
+    &:first-child {
+      margin-left: -5px;
+      float: left;
+    }
+
+    &:last-child {
+      float: right;
+    }
+  }
+
 }
 
 footer {
@@ -259,7 +276,7 @@ a.link {
 	border-bottom: none;
 	color: #fff;
 	font-size: 1.2em;
-	margin: 0 2em;
+	margin: 0;
 	padding: 1em;
 	text-transform: uppercase;
 	&:hover {
