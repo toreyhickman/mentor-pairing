@@ -23,4 +23,8 @@ module ApplicationHelper
   def href_to_twitters_user(m)
     "https://twitter.com/" + m.twitter_handle
   end
+
+  def month_link(symbol, month)
+    link_to symbol, :month => month.strftime("%Y-%m-01")
+  end
 end

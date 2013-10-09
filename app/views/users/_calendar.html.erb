@@ -1,0 +1,21 @@
+<div id="calendar">
+  <%= month_link("<", @date.beginning_of_month-1) %>
+  <%= html_escape @date.strftime("%B %Y") %>
+  <%= month_link(">", @date.end_of_month+1) %>
+  <%= calendar_for events, :year => @date.year, :month => @date.month do |calendar| %>
+    <%= calendar.head('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')%>
+    <%= calendar.day(:day_method => :start_time) do |date, appointments| %>
+      <% if appointments.nil? %>
+        <%= date.day %>
+      <% else %>
+        <%= date.day %>
+        <ul class="daily_appointments">
+        <% appointments.each do |appt| %>
+          <li class="mentee_name"><%= appt.mentee.first_name %> <%= appt.mentee.last_name %></li>
+        <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+

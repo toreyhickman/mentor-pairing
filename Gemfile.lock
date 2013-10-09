@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/watu/table_builder.git
+  revision: 56d962a533bc41f376201d49185bf4f63e2a6431
+  specs:
+    watu_table_builder (0.3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -57,6 +63,8 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    faker (1.2.0)
+      i18n (~> 0.5)
     fssm (0.2.10)
     gravtastic (3.2.6)
     hike (1.2.3)
@@ -160,6 +168,7 @@ DEPENDENCIES
   coffee-rails
   compass-rails (~> 2.0.alpha.0)
   factory_girl_rails
+  faker
   gravtastic
   jquery-rails
   jquery-ui-rails
@@ -173,3 +182,4 @@ DEPENDENCIES
   shoulda-matchers
   susy
   uglifier
+  watu_table_builder!
