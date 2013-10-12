@@ -12,7 +12,7 @@ class Appointment < ActiveRecord::Base
   after_create :kill_availability, :create_kudo
 
   scope :visible, Proc.new {
-    where("start_time > ?", Time.now)
+    where("end_time > ?", Time.now)
   }
 
   private
